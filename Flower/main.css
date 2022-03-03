@@ -1,0 +1,19 @@
+#animation{
+    height:70vh;
+    width:80vw;
+    background:aliceblue;
+    margin:auto;
+    margin-top:10vh;
+}
+
+#textTwo{
+margin: auto;
+left:40vw;
+top:28vh;
+width:20vw;
+justify-content: center;
+height:14vh;
+}
+#two{
+    text-align: center;
+}
