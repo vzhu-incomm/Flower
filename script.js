@@ -11,26 +11,32 @@ var frameNum = 1;
 function timer() {
 
 
-    if (frameNum < 7) {
+    if (frameNum <= 7) {
         if (frameNum % 1 == 0) {
-            document.getElementById("frame").src = "/img/Frame" + frameNum + "-r.png";
+            if (frameNum <= 4) {
+                document.getElementById("frame").src = "/img/Frame" + frameNum + ".png";
+            } else {
+                document.getElementById("frame").src = "/img/Frame" + frameNum + "-"+document.getElementById("color").value + ".png";
+            }
+            console.log(document.getElementById("frame").src);
         }
+
         frameNum = frameNum + 1;
         my_time = setTimeout('timer()', 750);
-    } else if (frameNum<=9){
-        if (frameNum == 8){
+    } else if (frameNum <= 9) {
+        if (frameNum == 8) {
             document.getElementById("box").style.display = "block";
         }
-        if (frameNum == 9){
+        if (frameNum == 9) {
             document.getElementById("click").style.display = "block";
         }
         frameNum = frameNum + 1;
         my_time = setTimeout('timer()', 1400);
-    } 
+    }
 
 }
 
-function boxZoom(){
+function boxZoom() {
     var w = document.getElementById('box').style.width;
     wnum = w.slice(0, -2);
     wnum = parseFloat(wnum);
@@ -43,18 +49,18 @@ function boxZoom(){
     lnum = l.slice(0, -2);
     lnum = parseFloat(lnum);
 
-    if (wnum < 20){
+    if (wnum < 20) {
         document.getElementById('box').style.width = wnum + 0.2 + "vw";
         document.getElementById('box').style.top = tnum - 0.09 + "vh";
         document.getElementById('box').style.left = lnum - 0.09 + "vw";
         my_time = setTimeout('boxZoom()', 100);
     } else {
         document.getElementById('box').src = "/img/giftcard.png"
-        document.getElementById('textTwo').style.display="block";
-        document.getElementById('two').innerText=document.getElementById("inputTwo").value;
+        document.getElementById('textTwo').style.display = "block";
+        document.getElementById('two').innerText = document.getElementById("inputTwo").value;
     }
 
-}    
+}
 
 // function showBox() {
 //     document.getElementById("box").style.display = "block";
