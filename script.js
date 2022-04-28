@@ -42,9 +42,9 @@ function timer() {
         if (frameNum % 1 == 0) {
             
             if (frameNum <= 4) {
-                document.getElementById("frame").src = ".../img/Frame" + frameNum + ".png";
+                document.getElementById("frame").src = "/img/Frame" + frameNum + ".png";
             } else {
-                document.getElementById("frame").src = ".../img/Frame" + frameNum + "-"+color + ".png";
+                document.getElementById("frame").src = "/img/Frame" + frameNum + "-"+color + ".png";
             }
             console.log(document.getElementById("frame").src);
         }
