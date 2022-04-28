@@ -32,6 +32,9 @@ function timer() {
         }
         frameNum = frameNum + 1;
         my_time = setTimeout('timer()', 1400);
+    } 
+    else {
+        boxZoom();
     }
 
 }
@@ -49,7 +52,7 @@ function boxZoom() {
     lnum = l.slice(0, -2);
     lnum = parseFloat(lnum);
 
-    if (wnum < 20) {
+    if (wnum < 15) {
         document.getElementById('box').style.width = wnum + 0.2 + "vw";
         document.getElementById('box').style.top = tnum - 0.09 + "vh";
         document.getElementById('box').style.left = lnum - 0.09 + "vw";
