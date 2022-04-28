@@ -1,11 +1,38 @@
 function loadAnimation() {
     document.getElementById("frame").style.display = "block";
-    document.getElementById("textOne").innerText = document.getElementById("inputOne").value;
+    document.getElementById("textOne").innerText = sParameter1;
 
 
     // horizontal();
     timer();
 }
+
+
+var query = window.location.search.substring(1);
+    // pulls variables from URL string
+    function getURLVariable(name) {
+        url = location.href;
+        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+        var regexS = "[\\?&]"+name+"=([^&#]*)";
+        var regex = new RegExp( regexS );
+        var results = regex.exec( url );
+        return results == null ? null : decodeURIComponent(results[1]);
+    }
+    var sParameter1, sParameter2, sParameter3, color;
+    // gifter //
+    sParameter1 = getURLVariable('to');
+    
+    //sParameter1 = "Zach & Kelsey";
+    
+    // special message //	
+    sParameter2 = getURLVariable('message');	
+    //sParameter2 = "Congratulations from Sarah & Eric";	
+    
+
+    sParameter3 = getURLVariable('color');	
+    //sParameter2 = "Congratulations from Sarah & Eric";	
+    var color = sParameter3;
+
 
 var frameNum = 1;
 function timer() {
@@ -13,10 +40,11 @@ function timer() {
 
     if (frameNum <= 7) {
         if (frameNum % 1 == 0) {
+            
             if (frameNum <= 4) {
-                document.getElementById("frame").src = "/img/Frame" + frameNum + ".png";
+                document.getElementById("frame").src = ".../img/Frame" + frameNum + ".png";
             } else {
-                document.getElementById("frame").src = "/img/Frame" + frameNum + "-"+document.getElementById("color").value + ".png";
+                document.getElementById("frame").src = ".../img/Frame" + frameNum + "-"+color + ".png";
             }
             console.log(document.getElementById("frame").src);
         }
@@ -53,14 +81,14 @@ function boxZoom() {
     lnum = parseFloat(lnum);
 
     if (wnum < 15) {
-        document.getElementById('box').style.width = wnum + 0.2 + "vw";
+        document.getElementById('box').style.width = wnum + 0.3 + "vw";
         document.getElementById('box').style.top = tnum - 0.09 + "vh";
         document.getElementById('box').style.left = lnum - 0.09 + "vw";
         my_time = setTimeout('boxZoom()', 100);
     } else {
         document.getElementById('box').src = "/img/giftcard.png"
         document.getElementById('textTwo').style.display = "block";
-        document.getElementById('two').innerText = document.getElementById("inputTwo").value;
+        document.getElementById('two').innerText = sParameter2;
     }
 
 }
@@ -94,7 +122,7 @@ function box() {
         document.getElementById('boxback').style.top = ynum + 0.025 + "vh";
         document.getElementById('giftcard').style.top = ynum + 0.025 + "vh";
         document.getElementById('textTwoText').innerText = document.getElementById("inputTwo").value;
-        document.getElementById('textTwoText').style.top = document.getElementById('giftcard').style.top;
+        document.getElementById('textTwoText').style.top = document.getElementById('giftcard').style.top+5;
         //document.getElementById('textTwoText').style.height=document.getElementById('giftcard').style.height;
 
         //console.log(document.getElementById('textTwoText').style.top);
